@@ -13,10 +13,9 @@ class Book(models.Model):
 
 class LenderBook(models.Model):
     lender = models.ForeignKey(
-        User, related_name='lender', on_delete=models.CASCADE)
+        User, related_name='lenders', on_delete=models.CASCADE)
     borrower = models.ForeignKey(
-        User, related_name='borrower', on_delete=models.CASCADE)
-    name = models.ForeignKey(Book, related_name='name',
-                             on_delete=models.CASCADE)
+        User, related_name='borrowers', on_delete=models.CASCADE)
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
     lend_date = models.DateField()
     return_date = models.DateField(null=True, blank=True)

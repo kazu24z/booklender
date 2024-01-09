@@ -11,7 +11,7 @@ class Book(models.Model):
     isbn = models.CharField(max_length=13)
 
 
-class LenderBook(models.Model):
+class LenderRecord(models.Model):
     lender = models.ForeignKey(
         User, related_name='lenders', on_delete=models.CASCADE)
     borrower = models.ForeignKey(

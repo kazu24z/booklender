@@ -5,6 +5,8 @@ from django.contrib.auth.models import User
 
 
 class Book(models.Model):
+    owner = models.ForeignKey(
+        User, related_name='users', on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     author = models.CharField(max_length=30)
     # -は含めない設計(ISBN-13)
